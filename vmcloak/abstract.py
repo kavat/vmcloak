@@ -211,8 +211,10 @@ class WindowsAutounattended(OperatingSystem):
         values = {
             "PRODUCTKEY": self.serial_key,
             "COMPUTERNAME": random_string(8, 14),
-            "USERNAME": random_string(8, 12),
-            "PASSWORD": random_string(8, 16),
+            "USERNAME": "cuckoo",
+            #"USERNAME": random_string(8, 12),
+            "PASSWORD": "CiaoCiao_26",
+            #"PASSWORD": random_string(8, 16),
             "PRODUCT": product.upper(),
             "ARCH": self.arch,
             "INTERFACE": self.interface,
