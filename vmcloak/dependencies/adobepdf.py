@@ -414,7 +414,7 @@ class AdobePdf(Dependency):
             "/v bLoadSettingsFromURL /t REG_DWORD /d 0 /f" % key_version
         )
         self._make_adobe_default()
-        self._run_once()
+        #self._run_once()
 
 class Adobe9(AdobePdf, Dependency):
     """Backwards compatibility."""

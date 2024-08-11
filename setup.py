@@ -9,8 +9,8 @@ setup(
     name="VMCloak",
     version="1.0",
     author="Hatching B.V.",
-    author_email="info@hatching.io",
-    url="https://github.com/hatching/vmcloak",
+    author_email="andrycavallini87@gmail.com",
+    url="https://github.com/kavat/vmcloak",
     python_requires=">=3.6",
     packages=[
         "vmcloak",
