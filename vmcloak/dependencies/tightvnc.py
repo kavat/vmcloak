@@ -11,7 +11,10 @@ class TightVNC(Dependency):
         "version": "2.8.84",
         "arch": "amd64",
         "filename": "tightvnc-2.8.84-gpl-setup-64bit.msi",
-        "md5": "d9e810a84ebe69e403a5f7e4c5ab9a37"
+        "urls": [
+            "https://www.tightvnc.com/download/2.8.84/tightvnc-2.8.84-gpl-setup-64bit.msi"
+        ],
+        "sha1": "4f9f3e12ffc96dd0c6b479d20ada3f59dc383177"
     }]
 
     def run(self):
