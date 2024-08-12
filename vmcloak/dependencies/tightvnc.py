@@ -18,6 +18,6 @@ class TightVNC(Dependency):
     }]
 
     def run(self):
-        self.upload_file("/opt/vmcloak/{}".format(self.filename), "C:\\{}".format(self.filename))
+        self.upload_dependency("C:\\%s" % self.filename)
         self.a.execute("msiexec /i C:\\{} /quiet /norestart ADDLOCAL=Server SET_USEVNCAUTHENTICATION=1 VALUE_OF_USEVNCAUTHENTICATION=1 SET_PASSWORD=1 VALUE_OF_PASSWORD=password".format(self.filename))
         self.a.remove("C:\\%s" % self.filename)
