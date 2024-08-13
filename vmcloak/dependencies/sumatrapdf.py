@@ -2,7 +2,7 @@
 # This file is part of VMCloak - http://www.vmcloak.org/.
 # See the file 'docs/LICENSE.txt' for copying permission.
 
-from vmcloak.abstract import Dependency
+from vmcloak.abstract import Dependency, DependencyError
 from pathlib import Path
 
 class SumatraPDF(Dependency):
