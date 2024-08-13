@@ -29,7 +29,7 @@ class Firefox(Dependency):
 
     def run(self):
         self.upload_dependency("C:\\%s" % self.filename)
-        self.a.execute("C:\\%s -ms" % self.filename
+        self.a.execute("C:\\{} -ms".format(self.filename))
         self.a.remove("C:\\%s" % self.filename)
 
 class Firefox41(Firefox, Dependency):
