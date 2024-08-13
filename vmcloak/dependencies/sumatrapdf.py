@@ -29,7 +29,7 @@ class SumatraPDF(Dependency):
         self.a.execute("C:\\{} -install -s -d c:\\SumatraPDF".format(self.filename))
         self.a.remove("C:\\%s" % self.filename)
 
-        pdfreader_script = self.disable_scripts.get("pdfreader")
+        pdfreader_script = self.pdfreader_scripts.get("pdfreader")
         if not pdfreader_script:
             raise DependencyError(
                 f"OS: {self.h.name} has no service pdfreader script available."
