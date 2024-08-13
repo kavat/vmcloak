@@ -3,6 +3,7 @@
 # See the file 'docs/LICENSE.txt' for copying permission.
 
 from vmcloak.abstract import Dependency
+from pathlib import Path
 
 class SumatraPDF(Dependency):
     name = "sumatrapdf"
