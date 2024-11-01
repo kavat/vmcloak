@@ -5,6 +5,23 @@
 from vmcloak.abstract import Dependency
 from vmcloak.exceptions import DependencyError
 
+class DotNetOffline(Dependency):
+    name = "dotnetoffline"
+    default = "3.5"
+
+    exes = [{
+        "version": "3.5",
+        "arch": "amd64",
+        "filename": "dotnetfx35.exe",
+        "urls": [
+            "http://download.microsoft.com/download/2/0/e/20e90413-712f-438c-988e-fdaa79a8ac3d/dotnetfx35.exe"
+        ],
+        "sha1": "3dce66bae0dd71284ac7a971baed07030a186918"
+    }]
+
+    def run(self):
+        self.upload_dependency("C:\\%s" % self.filename)
+
 class DotNet(Dependency):
     name = "dotnet"
     depends = ["wic", "carootcert"]
@@ -14,11 +31,13 @@ class DotNet(Dependency):
     multiversion = True
 
     exes = [{
-        "version": 3.5,
+        "version": "3.5",
+        "arch": "amd64",
+        "filename": "dotnetfx35.exe",
         "urls": [
-            "https://go.microsoft.com/fwlink/?linkid=2186537"
+            "http://download.microsoft.com/download/2/0/e/20e90413-712f-438c-988e-fdaa79a8ac3d/dotnetfx35.exe"
         ],
-        "sha1": "dec07fa8225ced9dd1fd2e4c0fdb7e2ded035d64"
+        "sha1": "3dce66bae0dd71284ac7a971baed07030a186918"
     }, 
     {
         "version": "4.0",
