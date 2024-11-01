@@ -16,9 +16,9 @@ class DotNet(Dependency):
     exes = [{
         "version": 3.5,
         "urls": [
-            "https://download.microsoft.com/download/7/0/3/703455ee-a747-4cc8-bd3e-98a615c3aedb/dotNetFx35setup.exe"
+            "https://go.microsoft.com/fwlink/?linkid=2186537"
         ],
-        "sha1": "b0ca05c12ebb9a3610206bad7f219e02b7873cbd"
+        "sha1": "dec07fa8225ced9dd1fd2e4c0fdb7e2ded035d64"
     }, 
     {
         "version": "4.0",
