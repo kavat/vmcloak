@@ -14,6 +14,13 @@ class DotNet(Dependency):
     multiversion = True
 
     exes = [{
+        "version": 3.5,
+        "urls": [
+            "https://download.microsoft.com/download/7/0/3/703455ee-a747-4cc8-bd3e-98a615c3aedb/dotNetFx35setup.exe"
+        ],
+        "sha1": "b0ca05c12ebb9a3610206bad7f219e02b7873cbd"
+    }, 
+    {
         "version": "4.0",
         "urls": [
             "https://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe",
