@@ -44,12 +44,12 @@ setup(
     install_requires=[
         "click",
         "jinja2",
-        "pefile<2023.0.0",
+        "pefile==2024.8.26",
         "pyyaml>=5.1",
-        "sqlalchemy>=1.4, <1.5",
+        "sqlalchemy>=2.0.37",
         "alembic>=1.7.4, <1.8",
         "requests>=2.22.0, <3",
-        "psutil>=5.4.8, <6"
+        "psutil>=6.1.1"
     ],
     extras_require={
         ":sys_platform == 'win32'": [
