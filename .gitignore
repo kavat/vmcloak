@@ -6,3 +6,6 @@ build/
 dist/
 *.egg-info
 .idea/
+
+vmcloak_data/
+vmcloak_iso/
