@@ -11,6 +11,9 @@ services:
     volumes:
       - ./docker_templates:/tmp/templates
       - guac-mariadb-data:/var/lib/mysql
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.5.6
 
   guacamole:
     image: guacamole/guacamole:1.5.3
@@ -26,6 +29,9 @@ services:
       MYSQL_PASSWORD: password
     ports:
       - "8080:8080"
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.5.5
 
   guacd:
     build:
@@ -33,6 +39,9 @@ services:
       dockerfile: Dockerfile.guacd
     container_name: guacd
     restart: always
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.5.4
     cap_add:
       - NET_ADMIN
 
@@ -48,6 +57,17 @@ services:
       - ./vmcloak_iso:/root/iso
     devices:
       - "/dev/kvm:/dev/kvm"
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.5.3
 
 volumes:
   guac-mariadb-data:
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.5.0/24
+         gateway: 10.5.5.1
