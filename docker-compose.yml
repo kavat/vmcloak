@@ -1,0 +1,53 @@
+services:
+  mariadb:
+    image: mariadb:10.11
+    container_name: guac-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: guacamole_db
+      MYSQL_USER: guacamole_user
+      MYSQL_PASSWORD: password
+    volumes:
+      - ./docker_templates:/tmp/templates
+      - guac-mariadb-data:/var/lib/mysql
+
+  guacamole:
+    image: guacamole/guacamole:1.5.3
+    container_name: guacamole
+    restart: always
+    depends_on:
+      - mariadb
+    environment:
+      GUACD_HOSTNAME: guacd
+      MYSQL_HOSTNAME: mariadb
+      MYSQL_DATABASE: guacamole_db
+      MYSQL_USER: guacamole_user
+      MYSQL_PASSWORD: password
+    ports:
+      - "8080:8080"
+
+  guacd:
+    build:
+      context: .
+      dockerfile: Dockerfile.guacd
+    container_name: guacd
+    restart: always
+    cap_add:
+      - NET_ADMIN
+
+  vmcloak:
+    build:
+      context: .
+      dockerfile: Dockerfile.vmcloak
+    container_name: vmcloak
+    privileged: true
+    restart: always
+    volumes:
+      - ./vmcloak_data:/root/.vmcloak
+      - ./vmcloak_iso:/root/iso
+    devices:
+      - "/dev/kvm:/dev/kvm"
+
+volumes:
+  guac-mariadb-data:
