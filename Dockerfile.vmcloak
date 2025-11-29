@@ -15,9 +15,8 @@ ENV PATH="${PATH}:/root/.local/bin"
 RUN mkdir -p /etc/qemu
 RUN echo 'allow br0' | tee /etc/qemu/bridge.conf
 RUN chmod u+s /usr/lib/qemu/qemu-bridge-helper
-RUN sysctl -w net.ipv4.ip_forward=1
-RUN iptables -A FORWARD -i eth0 -o br0 -j ACCEPT
-RUN iptables -A FORWARD -i br0 -o eth0 -j ACCEPT
-RUN iptables -t nat -A POSTROUTING -s 192.168.30.0/24 -o eth0 -j MASQUERADE
+
+COPY docker_templates/scripts/vmcloak_entrypoint.sh /vmcloak_entrypoint.sh
+RUN chmod +x /vmcloak_entrypoint.sh
 
 ENTRYPOINT ["tail","-f","/dev/null"]
